@@ -1,4 +1,5 @@
 using System.Text;
+using backend.Middleware;
 using backend.Services;
 using backend.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -31,10 +32,11 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICurrencyService, CurrencyService>();
+
 builder.Services.AddScoped<IJwtService, JwtService>();
 var app = builder.Build();
 
-
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
