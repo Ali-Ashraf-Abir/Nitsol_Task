@@ -40,3 +40,4 @@ C:\Users\kcc\OneDrive\Desktop\abir\backend\bin\Debug\net10.0\Microsoft.IdentityM
 C:\Users\kcc\OneDrive\Desktop\abir\backend\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\kcc\OneDrive\Desktop\abir\backend\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\kcc\OneDrive\Desktop\abir\backend\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\kcc\OneDrive\Desktop\abir\backend\obj\Debug\net10.0\backend.sourcelink.json

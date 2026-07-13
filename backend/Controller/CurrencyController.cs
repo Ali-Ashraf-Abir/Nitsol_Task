@@ -1,15 +1,29 @@
+using backend.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CurrencyController : ControllerBase
+public class CurrencyController(ICurrencyService _currencyService) : ControllerBase
 {
-    [HttpGet]
+ [HttpGet("convert")]
     [Authorize]
-    public IActionResult GetCurrencies()
+    public async Task<IActionResult> Convert(
+        [FromQuery] string fromCurrency,
+        [FromQuery] string toCurrency,
+        [FromQuery] decimal amount)
     {
-        // Implementation for getting currencies
-        return Ok("working");
+        var result = await _currencyService.GetExchangeRateAsync(
+            fromCurrency,
+            toCurrency,
+            amount);
+
+        return Ok(new
+        {
+            fromCurrency,
+            toCurrency,
+            amount,
+            convertedAmount = result
+        });
     }
 }
