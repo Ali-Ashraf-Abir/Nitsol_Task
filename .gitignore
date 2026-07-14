@@ -1,2 +1,39 @@
 backend/obj/
 backend/bin/
+
+
+frontend/node_modules
+frontend/build
+
+
+# Angular build output
+frontend/dist/
+frontend/out-tsc/
+
+# Angular cache
+frontend/.angular/cache/
+
+# Coverage
+frontend/coverage/
+
+# Environment files
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/src/environments/*.local.ts
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/pnpm-debug.log*
+
+# TypeScript
+frontend/*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
