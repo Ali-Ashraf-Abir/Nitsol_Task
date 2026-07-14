@@ -90,6 +90,21 @@ Response:
 
 The returned JWT token is stored on the client and automatically sent with protected requests.
 
+## Currency API Setup
+
+This project uses ExchangeRate-API for currency conversion.
+
+Create an account at:
+
+https://www.exchangerate-api.com/
+
+Add your API key:
+
+```json
+"Currency": {
+  "Key": "YOUR_API_KEY"
+}
+
 
 ## Currency Conversion
 
