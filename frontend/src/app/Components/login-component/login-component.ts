@@ -47,7 +47,7 @@ export class LoginComponent {
 
       next: () => {
         this.loading.set(false);
-        this.router.navigate(['/']);
+        this.router.navigate(['/convert']);
       },
 
       error: err => {

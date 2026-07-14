@@ -1,0 +1,166 @@
+<div class="min-h-screen bg-background">
+
+    <!-- Navbar -->
+
+    <header class="border-b border-border bg-surface shadow-sm">
+
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+
+            <h1 class="text-2xl font-bold text-primary">
+                Currency Exchange
+            </h1>
+
+            <button
+                (click)="logout()"
+                class="rounded-md bg-danger px-4 py-2 text-text-inverse hover:opacity-90 transition">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Content -->
+
+    <main class="mx-auto mt-12 max-w-lg">
+
+        <div class="rounded-xl border border-border bg-surface p-8 shadow-card">
+
+            <h2 class="mb-8 text-center text-3xl font-bold text-text">
+
+                Currency Converter
+
+            </h2>
+
+            <form
+                [formGroup]="form"
+                (ngSubmit)="convert()"
+                class="space-y-6">
+
+                <!-- From -->
+
+                <div>
+
+                    <label class="mb-2 block text-sm font-medium text-text">
+                        From Currency
+                    </label>
+
+                    <select
+                        formControlName="fromCurrency"
+                        class="w-full rounded-md border border-border bg-surface px-4 py-3 outline-none focus:border-primary">
+
+                        @for(currency of currencies; track currency){
+
+                            <option [value]="currency">
+                                {{ currency }}
+                            </option>
+
+                        }
+
+                    </select>
+
+                </div>
+
+                <!-- Swap -->
+
+                <div class="flex justify-center">
+
+                    <button
+                        type="button"
+                        (click)="swapCurrencies()"
+                        class="rounded-full border border-border p-3 hover:bg-surface-2 transition">
+
+                        ⇅
+
+                    </button>
+
+                </div>
+
+                <!-- To -->
+
+                <div>
+
+                    <label class="mb-2 block text-sm font-medium text-text">
+                        To Currency
+                    </label>
+
+                    <select
+                        formControlName="toCurrency"
+                        class="w-full rounded-md border border-border bg-surface px-4 py-3 outline-none focus:border-primary">
+
+                        @for(currency of currencies; track currency){
+
+                            <option [value]="currency">
+                                {{ currency }}
+                            </option>
+
+                        }
+
+                    </select>
+
+                </div>
+
+                <!-- Amount -->
+
+                <div>
+
+                    <label class="mb-2 block text-sm font-medium text-text">
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        formControlName="amount"
+                        step="0.01"
+                        class="w-full rounded-md border border-border bg-surface px-4 py-3 outline-none focus:border-primary">
+
+                </div>
+
+                <!-- Button -->
+
+                <button
+                    class="w-full rounded-md bg-primary py-3 font-semibold text-text-inverse hover:bg-primary-hover transition">
+
+                    @if(loading()){
+
+                        Converting...
+
+                    } @else {
+
+                        Convert Currency
+
+                    }
+
+                </button>
+
+            </form>
+
+            @if(result() !== null){
+
+                <div
+                    class="mt-8 rounded-lg border border-success/20 bg-success/10 p-6">
+
+                    <p class="text-center text-text-muted">
+
+                        Converted Amount
+
+                    </p>
+
+                    <h2
+                        class="mt-2 text-center text-4xl font-bold text-success">
+
+                        {{ result() }}
+
+                    </h2>
+
+                </div>
+
+            }
+
+        </div>
+
+    </main>
+
+</div>
